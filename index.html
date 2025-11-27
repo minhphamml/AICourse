@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khóa học AI - Matsuya R&D Vietnam</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #ff6b35;
+            --dark-blue: #003d82;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".1" fill="%23ffffff"/></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin: 0 auto 20px;
+        }
+        
+        .module-card {
+            background: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .module-card:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .day-tab {
+            cursor: pointer;
+            padding: 15px 30px;
+            background: white;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50px;
+            transition: all 0.3s;
+            margin: 5px;
+        }
+        
+        .day-tab:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .day-tab.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+		.contact-section .container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;   /* Căn giữa ngang */
+			justify-content: center; /* Căn giữa dọc nếu cần */
+			text-align: left; 
+		}
+        
+        .btn-primary {
+            background: var(--secondary-color);
+            border: none;
+            padding: 12px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #e55a2b;
+            transform: scale(1.05);
+        }
+        
+        .stats-box {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stats-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#">
+                <i class="fas fa-brain"></i> Matsuya R&D Vietnam
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#overview">Tổng quan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#objectives">Mục tiêu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#curriculum">Chương trình</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">AI - HIỂU VÀ ỨNG DỤNG<br>ĐỂ NÂNG CAO HIỆU SUẤT CÔNG VIỆC</h1>
+                    <p class="lead mb-4">Khóa đào tạo 2 ngày tại doanh nghiệp giúp bạn thành thạo AI trong công việc thực tế</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <div class="stats-box bg-white bg-opacity-10 rounded px-4 py-2">
+                            <div class="stats-number">2</div>
+                            <div>Ngày</div>
+                        </div>
+                        <div class="stats-box bg-white bg-opacity-10 rounded px-4 py-2">
+                            <div class="stats-number">9</div>
+                            <div>Modules</div>
+                        </div>
+                        <div class="stats-box bg-white bg-opacity-10 rounded px-4 py-2">
+                            <div class="stats-number">100%</div>
+                            <div>Thực hành</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg mt-4" onclick="scrollToContact()">
+                        <i class="fas fa-calendar-check"></i> Đăng ký ngay
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <h2 class="fw-bold mb-4">Bối cảnh hiện nay</h2>
+                    <p>Trong bối cảnh AI đang ngày càng trở thành một phần không thể thiếu trong môi trường kinh doanh, việc "biết về AI" không còn là lợi thế, mà đã là điều kiện tiên quyết để duy trì năng suất và tính cạnh tranh.</p>
+                    <div class="mt-4">
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-exclamation-triangle text-warning me-3 mt-1"></i>
+                            <div>Hiểu đúng bản chất của AI, tránh ngộ nhận hoặc lạm dụng</div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-cogs text-primary me-3 mt-1"></i>
+                            <div>Ứng dụng AI một cách thiết thực vào công việc hàng ngày</div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-sync-alt text-success me-3 mt-1"></i>
+                            <div>Chuyển đổi thói quen làm việc để thích nghi với thời đại mới</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <h2 class="fw-bold mb-4">Đối tượng khóa học</h2>
+                    <div class="card feature-card p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h5 class="text-center mb-3">Ai nên tham gia?</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Nhân viên các phòng ban</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Quản lý cấp trung và cao cấp</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Người muốn làm việc nhanh hơn, hiệu quả hơn</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Những ai muốn bắt kịp xu hướng công nghệ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objectives Section -->
+    <section id="objectives" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold section-title">Mục tiêu khóa học</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card feature-card p-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h5 class="mb-3">Hiểu nền tảng AI</h5>
+                        <p class="text-muted">Nắm vững tư duy đúng về AI trong công việc và tránh những ngộ nhận phổ biến</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card feature-card p-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <h5 class="mb-3">Viết Prompt hiệu quả</h5>
+                        <p class="text-muted">Thành thạo kỹ thuật viết prompt để khai thác tối đa sức mạnh của AI</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card feature-card p-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h5 class="mb-3">Phân tích dữ liệu</h5>
+                        <p class="text-muted">Sử dụng AI để phân tích dữ liệu, tạo báo cáo và hỗ trợ ra quyết định</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card feature-card p-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h5 class="mb-3">Tự động hóa</h5>
+                        <p class="text-muted">Thiết kế hệ thống AI cá nhân hóa để tự động hóa công việc hàng ngày</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card feature-card p-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h5 class="mb-3">Quản lý dự án</h5>
+                        <p class="text-muted">Lập kế hoạch và quản lý dự án hiệu quả với sự hỗ trợ của AI</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card feature-card p-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h5 class="mb-3">Tối ưu hiệu quả</h5>
+                        <p class="text-muted">Kết hợp AI với kỹ năng con người để tăng tốc độ và giảm lỗi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section id="curriculum" class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold section-title">Chương trình đào tạo</h2>
+            
+            <div class="text-center mb-5">
+                <button class="day-tab active" onclick="showDay(1)">
+                    <i class="fas fa-calendar-day"></i> Ngày 1: Nền tảng và kỹ năng cơ bản
+                </button>
+                <button class="day-tab" onclick="showDay(2)">
+                    <i class="fas fa-calendar-day"></i> Ngày 2: Ứng dụng nâng cao
+                </button>
+            </div>
+
+            <!-- Day 1 Content -->
+            <div id="day1" class="day-content">
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <h4 class="mb-4"><i class="fas fa-sun text-warning"></i> Buổi sáng</h4>
+                        
+                        <div class="module-card">
+                            <h5 class="fw-bold text-primary">Module 1: Nền tảng cơ bản về AI</h5>
+                            <p class="text-muted mb-2"><i class="far fa-clock"></i> 90 phút</p>
+                            <ul class="small">
+                                <li>Phân loại các khái niệm AI</li>
+                                <li>Ứng dụng thực tế của Generative AI</li>
+                                <li>Lưu ý quan trọng khi sử dụng AI</li>
+                                <li>Làm quen với các công cụ AI phổ biến</li>
+                            </ul>
+                        </div>
+
+                        <div class="module-card">
+                            <h5 class="fw-bold text-primary">Module 2: Công thức viết Prompt cơ bản</h5>
+                            <p class="text-muted mb-2"><i class="far fa-clock"></i> 80 phút</p>
+                            <ul class="small">
+                                <li>Hiểu về Prompt và tầm quan trọng</li>
+                                <li>Công thức RTIO Framework</li>
+                                <li>Ngôn ngữ tối ưu khi viết prompt</li>
+                                <li>Thực hành viết prompt cơ bản</li>
+                            </ul>
+                        </div>
+
+                        <div class="module-card">
+                            <h5 class="fw-bold text-primary">Module 3: Kỹ thuật Prompt nâng cao</h5>
+                            <p class="text-muted mb-2"><i class="far fa-clock"></i> 40 phút</p>
+                            <ul class="small">
+                                <li>Kỹ thuật viết prompt theo vai trò</li>
+                                <li>Định dạng markdown trong prompt</li>
+                                <li>Thực hành prompt nâng cao</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-4">
+                        <h4 class="mb-4"><i class="fas fa-moon text-primary"></i> Buổi chiều</h4>
+                        
+                        <div class="module-card">
+                            <h5 class="fw-bold text-primary">Module 4: Deep Research</h5>
+                            <p class="text-muted mb-2"><i class="far fa-clock"></i> 70 phút</p>
+                            <ul class="small">
+                                <li>Tính năng Deep Research</li>
+                                <li>Cách sử dụng Deep Research hiệu quả</li>
+                                <li>Thực hành Deep Research</li>
+                            </ul>
+                        </div>
+
+                        <div class="module-card">
+                            <h5 class="fw-bold text-primary">Module 5: Phân tích dữ liệu với AI</h5>
+                            <p class="text-muted mb-2"><i class="far fa-clock"></i> 120 phút</p>
+                            <ul class="small">
+                                <li>Các loại dữ liệu có thể phân tích</li>
+                                <li>Kỹ thuật Chain-of-thought cho dữ liệu phi cấu trúc</li>
+                                <li>Phân tích dữ liệu có cấu trúc</li>
+                                <li>Demo trực tiếp phân tích dữ liệu</li>
+                                <li>Thực hành phân tích dữ liệu lớn</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 Content -->
+            <div id="day2" class="day-content" style="display:none;">
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <h4 class="mb-4"><i class="fas fa-sun text-warning"></i> Buổi sáng</h4>
+                        
+                        <div class="module-card">
+                            <h5 class="fw-bold text-primary">Module 6: Tạo báo cáo và slide</h5>
+                            <p class="text-muted mb-2"><i class="far fa-clock"></i> 105 phút</p>
+                            <ul class="small">
+                                <li>Xây dựng cấu trúc báo cáo logic</li>
+                                <li>Trực quan hóa dữ liệu với AI</li>
+                                <li>Sử dụng Gamma để tạo slide chuyên nghiệp</li>
+                                <li>Thực hành tạo báo cáo hoàn chỉnh</li>
+                            </ul>
+                        </div>
+
+                        <div class="module-card">
+                            <h5 class="fw-bold text-primary">Module 7: Lập kế hoạch và quản lý dự án</h5>
+                            <p class="text-muted mb-2"><i class="far fa-clock"></i> 105 phút</p>
+                            <ul class="small">
+                                <li>Thiết lập mục tiêu với mô hình SMART</li>
+                                <li>Phân bổ nguồn lực với mô hình RACI</li>
+                                <li>Sắp xếp công việc theo mức độ ưu tiên</li>
+                                <li>Kỹ thuật Self-Consistency trong lập kế hoạch</li>
+                                <li>Sử dụng công cụ quản lý dự án</li>
+                                <li>Thực hành lập kế hoạch dự án</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-4">
+                        <h4 class="mb-4"><i class="fas fa-moon text-primary"></i> Buổi chiều</h4>
+                        
+                        <div class="module-card">
+                            <h5 class="fw-bold text-primary">Module 8: AI Assistant và Automation</h5>
+                            <p class="text-muted mb-2"><i class="far fa-clock"></i> 90 phút</p>
+                            <ul class="small">
+                                <li>Phân biệt các loại AI cá nhân</li>
+                                <li>Các kỹ thuật học máy cho AI cá nhân</li>
+                                <li>Kỹ thuật few-shot learning trong prompt</li>
+                                <li>Thiết kế AI Assistant cá nhân</li>
+                                <li>Demo tạo trợ lý AI hoàn chỉnh</li>
+                            </ul>
+                        </div>
+
+                        <div class="module-card">
+                            <h5 class="fw-bold text-primary">Module 9: Xây dựng hệ thống AI cá nhân</h5>
+                            <p class="text-muted mb-2"><i class="far fa-clock"></i> 120 phút</p>
+                            <ul class="small">
+                                <li>Phân tích nhu cầu cá nhân</li>
+                                <li>Thực hành tạo trợ lý cá nhân</li>
+                                <li>Testing và tối ưu hóa</li>
+                                <li>Chia sẻ và phản hồi</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-info mt-4">
+                <i class="fas fa-info-circle"></i> <strong>Lưu ý:</strong> Nếu Quý anh/chị muốn điều chỉnh thời lượng hoặc tùy chọn nội dung phù hợp với đặc thù doanh nghiệp, vui lòng liên hệ để cùng trao đổi và xây dựng chương trình phù hợp nhất.
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="text-center fw-bold section-title">Liên hệ đăng ký</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-25">
+                    <div class="row g-4">
+                        <div class="col-md-25 col-lg-25">					
+                            <div class="card feature-card p-4">
+                                <h5 class="fw-bold mb-3"><i class="fas fa-map-marker-alt text-primary"></i> Bộ phận IS </h5>
+								<p class="mb-2"><i class="fas fa-name text-success"></i> Phạm Ngọc Minh </p>
+                                <p class="mb-2"><i class="fas fa-phone text-success"></i> SĐT : 0356817008 </p>
+                                <p class="mb-2"><i class="fas fa-envelope text-danger"></i> Email: ngocminh@vnmatsuya.com</p>
+                                <p class="mb-0"><i class="fas fa-globe text-info"></i> https://www.matsuyard.co.jp/</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-5">
+                        <button class="btn btn-primary btn-lg">
+                            <i class="fas fa-paper-plane"></i> Liên hệ tư vấn ngay
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; Matsuya R&D Vietnam. All rights reserved.</p>
+            <p class="small mb-0 mt-2">Đào tạo tại doanh nghiệp - Thời lượng: 2 ngày</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showDay(day) {
+            document.getElementById('day1').style.display = day === 1 ? 'block' : 'none';
+            document.getElementById('day2').style.display = day === 2 ? 'block' : 'none';
+            
+            const tabs = document.querySelectorAll('.day-tab');
+            tabs.forEach((tab, index) => {
+                if (index === day - 1) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+        }
+
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .module-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
