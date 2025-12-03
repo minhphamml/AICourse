@@ -153,6 +153,26 @@
             background: var(--secondary-color);
             border-radius: 2px;
         }
+
+		/* Chặn bôi đen */
+		* {
+		  user-select: none;
+		  -webkit-user-select: none;
+		  -ms-user-select: none;
+		}
+		
+		/* Chặn inspect Overlay */
+		#block-devtools {
+		  position: fixed;
+		  top: 0; left: 0;
+		  width: 100%; 
+		  height: 100%;
+		  background: black;
+		  display: none;
+		  z-index: 9999999;
+		}
+
+		
     </style>
 </head>
 <body>
@@ -544,6 +564,40 @@
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
         });
+
+
+		
+	// Chặn chuột phải
+	document.addEventListener('contextmenu', e => e.preventDefault());
+	
+	// Chặn phím tắt copy / view source
+	document.onkeydown = function(e) {
+	    if (e.keyCode == 123) return false;
+	    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) return false;
+	    if (e.ctrlKey && e.keyCode == 85) return false;
+	    if (e.ctrlKey && e.keyCode == 83) { e.preventDefault(); return false; }
+	    if (e.ctrlKey && e.keyCode == 67) return false;
+	    if (e.ctrlKey && e.shiftKey && e.keyCode == 67) return false;
+	};
+	
+	// Chặn copy sự kiện
+	document.addEventListener('copy', e => e.preventDefault());
+	
+	// Chặn drag
+	document.ondragstart = () => false;
+	
+	// Phát hiện mở DevTools
+	setInterval(() => {
+	    const threshold = 160;
+	    let devtoolsOpen =
+	        window.outerWidth - window.innerWidth > threshold ||
+	        window.outerHeight - window.innerHeight > threshold;
+	
+	    document.getElementById("block-devtools").style.display =
+	        devtoolsOpen ? "block" : "none";
+	}, 500);
+
+		
     </script>
 </body>
 </html>
